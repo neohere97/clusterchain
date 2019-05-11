@@ -41,7 +41,7 @@ def generate_trans():
     while True:
         if(not state):
             break
-        transaction = f"{random.choice(first_names) + random.choice(alphabets) + random.choice(last_names)} paid {random.choice(first_names) + random.choice(alphabets) + random.choice(last_names)} {random.randint(1,500)} PIKA coins"
+        transaction = f"{} paid {} {} PIKA coins".format(random.choice(first_names) + random.choice(alphabets) + random.choice(last_names),random.choice(first_names) + random.choice(alphabets) + random.choice(last_names),random.randint(1,500))
         
         send_transaction(transaction)        
         time.sleep(60/no_of_transactions_permin)

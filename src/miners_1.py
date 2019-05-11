@@ -65,7 +65,7 @@ def send_to_peers(nonce):
         "host":hostname
     }
     for i in peers:
-        http.request(f'http://{i}:5000/found','POST',json.dumps(result))
+        http.request('http://{}:5000/found'.format(i),'POST',json.dumps(result))
         
 
 def validate(nonce, host):    
