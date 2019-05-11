@@ -9,7 +9,7 @@ app=Flask(__name__)
 
 hostname = socket.gethostname()
 max_nonce = 30000000
-difficulty_bits = 20
+difficulty_bits = 13
 target = 2 ** (256-difficulty_bits)
 found_nonce_elsewhere = False
 peers = ['192.168.2.104']
