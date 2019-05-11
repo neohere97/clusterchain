@@ -30,7 +30,7 @@ def monitorJobQueue():
         print(queue[0])
         http.request('http://192.168.2.104:5000/job','POST',json.dumps(queue[0]))
         http.request('http://192.168.2.103:5000/job','POST',json.dumps(queue[0]))
-        
+        print(queue[0])
         del queue[0]
     # lock_a.release()
     

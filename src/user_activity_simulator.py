@@ -21,6 +21,7 @@ def setState():
         state = True
         t= threading.Thread(target=generate_trans)
         t.start() 
+        print("Started")
     elif(state_s == "Stop"):
         state = False
 
@@ -33,6 +34,7 @@ def setState():
 def numTrans():
     global no_of_transactions_permin
     no_of_transactions_permin = json.loads(request.data.decode('utf-8'))['numTrans']
+    print("no of transactions set to {}".format(no_of_transactions_permin))
 
     return "OK",200
 
@@ -49,6 +51,7 @@ def generate_trans():
 
 def send_transaction(transaction):
     http = httplib2.Http()
+    print(transaction)
     http.request('http://0.0.0.0:5000/txion','POST',transaction)
 
 
