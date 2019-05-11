@@ -11,7 +11,7 @@ last_names = ['Wm', 'Roscoe', 'Chauncey', 'Graig', 'Malcolm', 'Morgan', 'Dennis'
 alphabets = [' A ', ' B ' , ' C ', ' D ', ' E ' , ' F ', ' G ', ' H ', ' I ' , ' J ', ' K ', ' L ', ' M ', ' N ', ' O ', ' P ', ' Q ', ' R ', ' S ', ' T ', ' U ', ' V ', ' W ', ' X ', ' Y ', ' Z ']
 
 state = False
-no_of_transactions_permin = 60
+no_of_transactions_permin = 2
 
 @app.route('/setState',methods =["POST"])
 def setState():
@@ -41,7 +41,7 @@ def generate_trans():
     while True:
         if(not state):
             break
-        transaction = f"{} paid {} {} PIKA coins".format(random.choice(first_names) + random.choice(alphabets) + random.choice(last_names),random.choice(first_names) + random.choice(alphabets) + random.choice(last_names),random.randint(1,500))
+        transaction = "{} paid {} {} PIKA coins".format(random.choice(first_names) + random.choice(alphabets) + random.choice(last_names),random.choice(first_names) + random.choice(alphabets) + random.choice(last_names),random.randint(1,500))
         
         send_transaction(transaction)        
         time.sleep(60/no_of_transactions_permin)
@@ -49,7 +49,7 @@ def generate_trans():
 
 def send_transaction(transaction):
     http = httplib2.Http()
-    http.request(f'http://0.0.0.0:5000/txion','POST',transaction)
+    http.request('http://0.0.0.0:5000/txion','POST',transaction)
 
 
 
